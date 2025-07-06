@@ -20,7 +20,7 @@ Use the `expose` function to directly expose your Angular component:
 ```typescript
 import {appConfig} from './app/app.config';
 import {AppComponent} from './app/app.component';
-import {exposeAngularComponent} from "@myop/angular-remote";
+import {exposeAngularComponent} from "@myop-dev/angular-remote";
 
 exposeAngularComponent(AppComponent, 'test-comp-1', async () => {
    return appConfig
@@ -31,33 +31,54 @@ exposeAngularComponent(AppComponent, 'test-comp-1', async () => {
 
 Follow these steps to create a Myop WebComponent from your Angular component:
 
-1. Open the Myop dashboard at [https://dashboard.myop.dev/](https://dashboard.myop.dev/)  <br>
-   <img src="docs/images/admin-dashboard.png" alt="Add Component Button" width="500"><br>
+1. Open the Myop dashboard at [https://dashboard.myop.dev](https://dashboard.myop.dev) <br>
+   <img src="docs/images/dashboard.png" alt="Dashboard" width="500"><br>
 
-2. Navigate to the Component Editor screen and click on **"+ Add a Component"** button  <br>
-   <img src="docs/images/component-editor.png" alt="Add Component Button" width="500"><br>
+2. To create a new component using a predefined template, click on the "Use sample component" button.
+3. To create a new component from scratch, click on the "Create from scratch" button.
+4. Choose Angular loader type <br/>
+   <img src="docs/images/loader-selection.png" alt="Loader Selection" width="500"><br/>
 
-3. In the Component Editor, click on **"+ Add"** button
+5. Define how this component connects to your host app using props and refs. <br/>
+6. If you're using a template, you can add all detected refs. Otherwise, add your own refs / props from the configuration panel.
+   <img src="docs/images/add-detected-refs.png" alt="Add detected refs" width="500"><br/>
+   <img src="docs/images/add-ref.png" alt="Add detected refs" width="500"><br/>
 
-4. Configure your component:
-    - Change the loader to "WebComponent"
-    - Enter your component URL (e.g., http://localhost:4400/main.js)
-    - Enter the tag name that you exposed the component with
 
-5. Your Angular component should now appear in the admin panel
+7. Configure your component:
+   - Enter the component name and description.
+   - Enter your component URL (e.g., http://localhost:4400/main.js).
+   - Enter the tag name that you exposed the component with.
+   - Click on the "view source code" button to view the React code example .
+   - Click on the "Set to default" to set the relevant variant as the default one.
+   - Click on the Delete button to delete a variant. <br/>
+     <img src="docs/images/variants-section.png" alt="Variants Section" width="600" height="100"><br/>
 
-6. Note: The GUID in the browser URL is the `componentId` that you'll need later
+
+**Note:** The GUID in the browser URL is the `componentId` that you'll need later
+
+8. Saving:
+   - If you want to save the component, click on the "Save" button
+   - If you want to attach the component to an existing "Flow", Click on the ChevronDown button to search for the relevant flow
+   - If you want to attach the component to a new flow, click on the (after the component itself was already saved). <br/>
+     <img src="docs/images/saving.png" alt="Saving" width="300"><br/>
+
+9. The component is saved and published! You can copy the code snippet and add this to your host application. <br/>
+   <img src="docs/images/saved-component.png" alt="Saved" width="400"><br/>
+
 
 ## Creating Flows
 
-1. Open the Myop dashboard at [https://dashboard.myop.dev/](https://dashboard.myop.dev/)
+1. Open the Myop dashboard at [https://dashboard.myop.dev](https://dashboard.myop.dev)
+   <img src="docs/images/dashboard.png" alt="Dashboard" width="500"><br/>
 
-2. Navigate to the Flows Editor screen and click on **"+ Add a Flow"** button
+2. Click on the "Create a new flow" button to add a new flow
 
-3. Add your component to the flow
+3. Add your component to the flow <br/>
+   <img src="docs/images/flow.png" alt="Saving" width="400"><br/>
+
 
 4. Note: The GUID in the browser URL is the `flowId` that you'll need later
-
 ## Using Myop Components in Angular
 
 You can integrate Myop components into your Angular application in two ways:
@@ -71,7 +92,7 @@ import { TodoComponent } from './todo.component.ts';
 { path: 'todo', component: TodoComponent }
 
 // After
-import { MyopContainerComponent } from '@myop/angular';
+import { MyopContainerComponent } from '@myop-dev/angular';
 
 {
     path: 'todo',
